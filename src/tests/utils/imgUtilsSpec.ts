@@ -9,12 +9,12 @@ describe('Image transform function should resolve or reject ', () => {
     ).toBeResolved();
   });
 
-  it('Expect transform to throw specific error: Image not found', async () => {
+  it('Expect transform to throw specific error: Image was not found', async () => {
     await expectAsync(
-      resizeImg('image99', {
+      resizeImg('image11', {
         size: { width: 200, height: 200 },
       })
-    ).toBeRejectedWith(new Error('Image not found!'));
+    ).toBeRejectedWith(new Error('Image was not found!'));
   });
 
   it('Expect transform to throw specific error: Cannot resize image with input size (0, 200)', async () => {

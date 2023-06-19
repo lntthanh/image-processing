@@ -7,14 +7,14 @@ interface FileResult {
 }
 
 /**
- * Get the path based on filename
- * @param filename The file name to display
+ * Get the path based on fileName
+ * @param fileName The file name to display
  * @param width The width of the image
  * @param height The height of the image
  * @returns
  */
 export const getResizeImgPath = (
-    filename: string,
+    fileName: string,
     width: number,
     height: number
 ): FileResult => {
@@ -25,7 +25,7 @@ export const getResizeImgPath = (
         'src',
         'asset',
         'full',
-        filename + '.jpg'
+        fileName + '.jpg'
     );
     const resultFilePath = path.join(
         __dirname,
@@ -34,12 +34,10 @@ export const getResizeImgPath = (
         'src',
         'asset',
         'thumb',
-        `${filename}_${width}_${height}.jpg`
+        `${fileName}_${width}_${height}.jpg`
     );
-    return {
-        filePath,
-        resultFilePath,
-    };
+
+    return { filePath, resultFilePath };
 };
 
 /**

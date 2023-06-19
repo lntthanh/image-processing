@@ -1,7 +1,7 @@
 import { checkExistFile, getResizeImgPath } from '../../utils/utils';
 import path from 'path';
 
-const getInputFilePath = (filename: string): string =>
+const getInputFilePath = (fileName: string): string =>
     path.join(
         __dirname,
         '..',
@@ -10,11 +10,11 @@ const getInputFilePath = (filename: string): string =>
         'src',
         'asset',
         'full',
-        filename + '.jpg'
+        fileName + '.jpg'
     );
 
 const getOutputPath = (
-    filename: string,
+    fileName: string,
     width: number,
     height: number
 ): string =>
@@ -26,7 +26,7 @@ const getOutputPath = (
         'src',
         'asset',
         'thumb',
-        `${filename}_${width}_${height}.jpg`
+        `${fileName}_${width}_${height}.jpg`
     );
 
 describe('FileUtils Test', () => {

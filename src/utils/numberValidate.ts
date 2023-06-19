@@ -8,7 +8,7 @@ export const isNumeric = (value: string): boolean => {
 };
 
 /**
- * The method from filename-reserved-regex
+ * The method from fileName-reserved-regex
  * @returns
  */
 export default function fileNameReservedRegex(): RegExp {
@@ -17,7 +17,7 @@ export default function fileNameReservedRegex(): RegExp {
 }
 
 /**
- * The method from filename-reserved-regex
+ * The method from fileName-reserved-regex
  * @returns
  */
 export function windowsReservedNameRegex(): RegExp {
@@ -26,17 +26,17 @@ export function windowsReservedNameRegex(): RegExp {
 
 /**
  * The method to check valid file name
- * @param filename The filename to check valid
+ * @param fileName The fileName to check valid
  * @returns
  */
-export const isValidFileName = (filename: string): boolean => {
-    if (!filename || filename.length > 255) {
+export const isValidFileName = (fileName: string): boolean => {
+    if (!fileName || fileName.length > 255) {
         return false;
     }
 
-    if (fileNameReservedRegex().test(filename) || windowsReservedNameRegex().test(filename)) {
+    if (fileNameReservedRegex().test(fileName) || windowsReservedNameRegex().test(fileName)) {
         return false;
     }
 
-    return !(filename === '.' || filename === '..');
+    return !(fileName === '.' || fileName === '..');
 };
