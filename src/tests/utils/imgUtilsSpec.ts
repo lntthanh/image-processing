@@ -8,18 +8,25 @@ describe('Image transform function should resolve or reject ', () => {
             })
         ).toBeResolved();
     });
-    it('Expect transform to throw specific error: Cannot resize image with input size (0, 200)', async () => {
+    it('Expect a specific error to be thrown by transform: Unable to resize the image with the given dimensions (0, 200)', async () => {
         await expectAsync(
             resizeImg('image_1', {
                 size: {width: 0, height: 200},
             })
-        ).toBeRejectedWith(new Error('Cannot resize image with input size'));
+        ).toBeRejectedWith(new Error('Unable to resize the image with the given dimensions'));
     });
-    it('Expect transform to throw specific error: Cannot resize image with input size (200, 0)', async () => {
+    it('Expect a specific error to be thrown by transform: Unable to resize the image with the given dimensions (200, 0)', async () => {
         await expectAsync(
             resizeImg('image_1', {
                 size: {width: 200, height: 0},
             })
-        ).toBeRejectedWith(new Error('Cannot resize image with input size'));
+        ).toBeRejectedWith(new Error('Unable to resize the image with the given dimensions'));
+    });
+    it('Expect a specific error to be thrown by transform: Image was not found', async () => {
+        await expectAsync(
+            resizeImg('image99', {
+                size: { width: 200, height: 200 },
+            })
+        ).toBeRejectedWith(new Error('Image was not found!'));
     });
 });
